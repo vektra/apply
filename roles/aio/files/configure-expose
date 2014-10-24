@@ -5,9 +5,9 @@ URL="https://api.arch.sh/register?json=1"
 JSON=/var/lib/expose.json
 
 if test -f $JSON; then
-  curl -d @$JSON $URL > $JSON
+  curl -s -XPOST -d @$JSON $URL > $JSON
 else
-  curl $URL > $JSON
+  curl -s -XPOST $URL > $JSON
 fi
 
 domain=$(jq -r .domain $JSON)
