@@ -1,0 +1,21 @@
+---
+
+- name: Install vk-aio
+  apt: pkg=vk-aio state=present
+
+- name: Setup aio dirs
+  shell: mkdir -p /var/lib/vektra-aio
+
+- name: Enable aio service
+  upstart/daemon:
+    start_on: vektra-booted
+    name: vk-aio
+    pre_start: |
+      mkdir -p /var/lib/vektra-aio
+      test -f /var/lib/vektra-aio/api.key || \
+        ssh-keygen -f /var/lib/vektra-aio/api.key -N ''
+    command: /usr/vektra/bin/aio
+    foreground: true
+
+- name: Start aio
+  upstart/start: name=vk-aio

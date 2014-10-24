@@ -1,0 +1,17 @@
+---
+
+- name: Setup dirs
+  shell: mkdir -p /var/lib/vektra-logs
+
+- name: Install vk-log
+  apt: pkg=vk-log state=present
+
+- name: Create the vk-log service
+  upstart/daemon:
+    name: vk-log
+    command: /usr/vektra/bin/log server --data=/var/lib/vektra-logs
+    foreground: true
+
+- name: Start vk-log
+  upstart/start: name=vk-log
+

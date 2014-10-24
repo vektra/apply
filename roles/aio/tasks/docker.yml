@@ -1,0 +1,34 @@
+---
+
+- name: Add docker apt-key
+  shell: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+
+- name: Add docker source
+  shell: echo "deb https://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
+
+- name: Install docker
+  apt: pkg=lxc-docker state=present update_cache=yes
+
+- name: Chmod docker socket
+  shell: sudo chmod a+rwx /var/run/docker.sock
+
+- name: Install vektra/build
+  shell: docker pull docker.vektra.io/vektra/build && docker tag docker.vektra.io/vektra/build vektra/build
+
+- name: Install docker/redis
+  shell: docker pull docker.vektra.io/docker/redis && docker tag docker.vektra.io/docker/redis docker/redis
+
+- name: Install docker/memcache
+  shell: docker pull docker.vektra.io/docker/memcache && docker tag docker.vektra.io/docker/memcache docker/memcache
+
+- name: Install docker/postgres
+  shell: docker pull docker.vektra.io/docker/postgres && docker tag docker.vektra.io/docker/postgres docker/postgres
+
+- name: Install vektra/logentries
+  shell: docker pull docker.vektra.io/vektra/logentries && docker tag docker.vektra.io/vektra/logentries vektra/logentries
+
+- name: Install vektra/logstash
+  shell: docker pull docker.vektra.io/vektra/logstash && docker tag docker.vektra.io/vektra/logstash vektra/logstash
+
+- name: Install vektra/papertrail
+  shell: docker pull docker.vektra.io/vektra/papertrail && docker tag docker.vektra.io/vektra/papertrail vektra/papertrail

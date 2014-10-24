@@ -1,0 +1,7 @@
+---
+
+- include: apt.yml
+- include: docker.yml
+- include: log.yml
+- include: aio.yml
+- include: expose.yml

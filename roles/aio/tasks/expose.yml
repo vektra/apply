@@ -1,0 +1,10 @@
+---
+
+- name: Install jq
+  apt: pkg=jq state=present
+
+- name: Add the configure script
+  copy: src=configure-expose dest=/usr/vektra/bin/configure-expose
+
+- name: Fix perms
+  shell: chmod a+x /usr/vektra/bin/configure-expose

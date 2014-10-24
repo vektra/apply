@@ -1,0 +1,17 @@
+#!/bin/bash
+
+URL="https://api.arch.sh/register?json=1"
+
+JSON=/var/lib/expose.json
+
+if test -f $JSON; then
+  curl -d @$JSON $URL > $JSON
+else
+  curl $URL > $JSON
+fi
+
+domain=$(jq -r .domain $JSON)
+
+echo $domain > /var/lib/expose-domain
+
+echo "Now available at: $domain"

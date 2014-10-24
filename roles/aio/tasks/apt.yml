@@ -1,0 +1,13 @@
+---
+
+- name: Add the repository
+  copy: src=vektra-product.list dest=/etc/apt/sources.list.d/vektra-product.list
+
+- name: Copy the release key
+  copy: src=release.pub dest=/tmp/release.pub
+
+- name: Add the release key
+  shell: apt-key add /tmp/release.pub
+
+- name: Update vektra repo
+  shell: apt-get update -o Dir::Etc::sourcelist="sources.list.d/vektra-product.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
