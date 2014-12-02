@@ -1,0 +1,10 @@
+---
+
+- name: Install consul
+  apt: pkg=consul state=present
+
+- name: Install vk-cluster-tool
+  apt: pkg=vk-cluster-tool state=present
+
+- name: Install vegad
+  apt: pkg=vega state=present
