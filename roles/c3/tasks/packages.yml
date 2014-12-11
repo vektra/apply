@@ -8,3 +8,6 @@
 
 - name: Install vegad
   apt: pkg=vega state=present
+
+- name: Install vcr
+  apt: pkg=vk-vcr state=present
