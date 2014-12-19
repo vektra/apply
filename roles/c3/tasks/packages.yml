@@ -11,3 +11,6 @@
 
 - name: Install vcr
   apt: pkg=vk-vcr state=present
+
+- name: Install vk-docker-registerd
+  apt: pkg=vk-docker-registryd state=present
