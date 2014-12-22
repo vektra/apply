@@ -13,22 +13,22 @@
   shell: sudo chmod a+rwx /var/run/docker.sock
 
 - name: Install vektra/build
-  shell: docker pull docker.vektra.com/vektra/build && docker tag docker.vektra.com/vektra/build vektra/build
+  shell: docker pull docker.vektra.com/vektra/build && docker tag -f docker.vektra.com/vektra/build vektra/build
 
 - name: Install docker/redis
-  shell: docker pull docker.vektra.com/docker/redis && docker tag docker.vektra.com/docker/redis docker/redis
+  shell: docker pull docker.vektra.com/docker/redis && docker tag -f docker.vektra.com/docker/redis docker/redis
 
 - name: Install docker/memcache
-  shell: docker pull docker.vektra.com/docker/memcache && docker tag docker.vektra.com/docker/memcache docker/memcache
+  shell: docker pull docker.vektra.com/docker/memcache && docker tag -f docker.vektra.com/docker/memcache docker/memcache
 
 - name: Install docker/postgres
-  shell: docker pull docker.vektra.com/docker/postgres && docker tag docker.vektra.com/docker/postgres docker/postgres
+  shell: docker pull docker.vektra.com/docker/postgres && docker tag -f docker.vektra.com/docker/postgres docker/postgres
 
 - name: Install vektra/logentries
-  shell: docker pull docker.vektra.com/vektra/logentries && docker tag docker.vektra.com/vektra/logentries vektra/logentries
+  shell: docker pull docker.vektra.com/vektra/logentries && docker tag -f docker.vektra.com/vektra/logentries vektra/logentries
 
 - name: Install vektra/logstash
-  shell: docker pull docker.vektra.com/vektra/logstash && docker tag docker.vektra.com/vektra/logstash vektra/logstash
+  shell: docker pull docker.vektra.com/vektra/logstash && docker tag -f docker.vektra.com/vektra/logstash vektra/logstash
 
 - name: Install vektra/papertrail
-  shell: docker pull docker.vektra.com/vektra/papertrail && docker tag docker.vektra.com/vektra/papertrail vektra/papertrail
+  shell: docker pull docker.vektra.com/vektra/papertrail && docker tag -f docker.vektra.com/vektra/papertrail vektra/papertrail
