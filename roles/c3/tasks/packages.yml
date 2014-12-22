@@ -4,13 +4,13 @@
   apt: pkg=consul state=present
 
 - name: Install vk-cluster-tool
-  apt: pkg=vk-cluster-tool state=present
+  apt: pkg=vk-cluster-tool state=install
 
 - name: Install vegad
-  apt: pkg=vega state=present
+  apt: pkg=vega state=install
 
 - name: Install vcr
-  apt: pkg=vk-vcr state=present
+  apt: pkg=vk-vcr state=install
 
 - name: Install vk-docker-registerd
-  apt: pkg=vk-docker-registryd state=present
+  apt: pkg=vk-docker-registryd state=install
